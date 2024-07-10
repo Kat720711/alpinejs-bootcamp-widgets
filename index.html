@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlpineJS Bootcamp Widgets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .widget {
+            margin-bottom: 30px;
+        }
+        .widget h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="greet.js" defer></script>
+    <script src="transport-fee.js" defer></script>
+    <script src="total-phone-bill.js" defer></script>
+    <script src="enough-airtime.js" defer></script>
+</head>
+<body>
+    <div class="widget" x-data="greetWidget()">
+        <h2>Greet Function</h2>
+        <input type="text" x-model="name" placeholder="Enter your name">
+        <select x-model="language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+        <p x-text="greet()"></p>
+    </div>
+
+    <div class="widget" x-data="transportFeeWidget()">
+        <h2>Transport Fee Function</h2>
+        <label>
+            <input type="radio" x-model="shift" value="morning"> Morning
+        </label>
+        <label>
+            <input type="radio" x-model="shift" value="afternoon"> Afternoon
+        </label>
+        <label>
+            <input type="radio" x-model="shift" value="nightshift"> Nightshift
+        </label>
+        <p x-text="transportFee()"></p>
+    </div>
+
+    <div class="widget" x-data="totalPhoneBillWidget()">
+        <h2>Total Phone Bill Function</h2>
+        <textarea x-model="phoneString" placeholder="Enter calls and SMS separated by comma"></textarea>
+        <button @click="calculateBill()">Calculate Bill</button>
+        <p x-text="totalBill"></p>
+    </div>
+
+    <div class="widget" x-data="enoughAirtimeWidget()">
+        <h2>Enough Airtime Function</h2>
+        <textarea x-model="projectedUsage" placeholder="Enter usage separated by comma"></textarea>
+        <input type="number" x-model="airtimeAvailable" placeholder="Enter airtime available">
+        <button @click="calculateAirtime()">Check Airtime</button>
+        <p x-text="airtimeResult"></p>
+    </div>
+</body>
+</html>
