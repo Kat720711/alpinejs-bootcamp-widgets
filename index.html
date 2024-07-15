@@ -4,23 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlpineJS Bootcamp Widgets</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .widget {
-            margin-bottom: 30px;
-        }
-        .widget h2 {
-            margin-bottom: 10px;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="greet.js" defer></script>
-    <script src="transport-fee.js" defer></script>
-    <script src="total-phone-bill.js" defer></script>
-    <script src="enough-airtime.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" ></script>
+ 
 </head>
 <body>
     <div class="widget" x-data="greetWidget()">
@@ -30,8 +16,10 @@
             <option value="en">English</option>
             <option value="es">Spanish</option>
             <option value="fr">French</option>
+            
         </select>
-        <p x-text="greet()"></p>
+        <button @click="greet">Greet</button>
+        <p x-text="greetingMessage"></p>
     </div>
 
     <div class="widget" x-data="transportFeeWidget()">
@@ -45,7 +33,8 @@
         <label>
             <input type="radio" x-model="shift" value="nightshift"> Nightshift
         </label>
-        <p x-text="transportFee()"></p>
+        <button @click="calculateFee">Calculate Fee</button>
+        <p x-text="feeMessage"></p>
     </div>
 
     <div class="widget" x-data="totalPhoneBillWidget()">
@@ -62,5 +51,10 @@
         <button @click="calculateAirtime()">Check Airtime</button>
         <p x-text="airtimeResult"></p>
     </div>
+
+    <script src="./greet.js" ></script>
+    <script src="transport-fee.js" defer></script>
+    <script src="total-phone-bill.js" defer></script>
+    <script src="enough-airtime.js" defer></script>
 </body>
 </html>

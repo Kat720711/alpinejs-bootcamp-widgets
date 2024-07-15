@@ -2,6 +2,7 @@ function greetWidget() {
     return {
         name: '',
         language: 'en',
+        greetingMessage: '',
         greetings: {
             en: 'Hello',
             es: 'Hola',
@@ -9,7 +10,10 @@ function greetWidget() {
         },
         greet() {
             const greeting = this.greetings[this.language];
-            return `${greeting}, ${this.name}`;
+            this.greetingMessage = `${greeting}, ${this.name}`;
+            console.log(this.greetingMessage); 
         }
     };
 }
+
+

@@ -23,6 +23,7 @@ function enoughAirtimeWidget() {
             
             const airtimeLeft = this.airtimeAvailable - totalCost;
             this.airtimeResult = airtimeLeft >= 0 ? `R${airtimeLeft.toFixed(2)}` : 'R0.00';
+            console.log(this.airtimeResult); 
         }
     };
 }

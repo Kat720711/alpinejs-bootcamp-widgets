@@ -17,6 +17,7 @@ function totalPhoneBillWidget() {
             
             const totalCost = (callCount * 2.75) + (smsCount * 0.65);
             this.totalBill = `R${totalCost.toFixed(2)}`;
+            console.log(this.totalBill); 
         }
     };
 }
